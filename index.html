@@ -779,7 +779,7 @@ body.dark .tpc{background:var(--surface-card);border-color:rgba(165,172,175,.15)
 <div class="srow exam-row"><span class="srow-time">9:00 AM to 11:50 AM</span><div class="srow-center"><span class="exam-pill">EXAM</span><span class="srow-topic">Exam #4 &middot; 22 questions, two from each group</span></div><span class="srow-who"></span></div>
 <div style="margin-top:16px;padding:14px 20px;background:var(--surface-muted);border-radius:10px">
 <div style="font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--au-green);margin-bottom:6px">Anchored to your date</div>
-<div style="font-size:15px;color:var(--ink-mid);line-height:1.6">First meeting with the group: <strong style="color:var(--ink)">as soon as possible</strong>, the closer the date, the sooner. Their responses and draft deck reach you and the course director: <strong style="color:var(--ink)">the Monday one week before</strong>. Final version posted in D2L: <strong style="color:var(--ink)">the Sunday before, 5:00 PM</strong>.</div>
+<div style="font-size:15px;color:var(--ink-mid);line-height:1.6">First meeting with the group: <strong style="color:var(--ink)">as soon as possible</strong>, the closer the date, the sooner. Their final version reaches the course director: <strong style="color:var(--ink)">the Monday one week before</strong>. Final version posted in D2L: <strong style="color:var(--ink)">the Sunday before, 5:00 PM</strong>.</div>
 </div>
 </div></div></section>
 <!-- 18 GRADING -->
@@ -1047,8 +1047,8 @@ body.dark .rub-ext{background:var(--au-green);color:#0a1826}
 <!-- 17 REVIEW WEEK -->
 <section class="slide slide--white"><div class="chrome-top"></div><div class="event-ribbon">BMCS <span class="dot"></span> BioMaterials Clinical Seminars</div><div class="slide-inner" style="justify-content:center"><div class="slide-kicker reveal d1">Clock Two &middot; Seminar Week</div><div class="content-title reveal d2">The Submission <em>Timeline</em></div><div class="content-sub reveal d3">A different clock from your runway: this one starts the Monday before each group presents, and it belongs to Dr. Pacheco and Dr. Rueggeberg. It is a final double-check, not the place to catch problems. Everything on the feedback slides should already be dead in your weekly meetings; the less that survives to this week, the less we flag, and the less the group panics with days to go.</div>
 <div class="strip reveal d4">
-<div class="day day--due"><div class="day-w">Monday &middot; one week out</div><div class="day-t">Drafts arrive</div><div class="day-d">Written responses to the five objectives plus the draft .pptx, emailed to you and the course director.</div></div>
-<div class="day day--due"><div class="day-w">That week</div><div class="day-t">Comments go back</div><div class="day-d">Dr. Pacheco and Dr. Rueggeberg double-check and send suggestions for anything still uncaught. The group revises from there.</div></div>
+<div class="day day--due"><div class="day-w">Monday &middot; one week out</div><div class="day-t">Final version submitted</div><div class="day-d">The group&rsquo;s finished deck and written objective responses go to Dr. Pacheco and Dr. Rueggeberg. It should already be presentation-ready.</div></div>
+<div class="day day--due"><div class="day-w">That week</div><div class="day-t">Final review, then edits</div><div class="day-d">Dr. Pacheco and Dr. Rueggeberg send suggestions for anything still uncaught, and the group has the rest of the week to make those edits.</div></div>
 <div class="day day--hard"><div class="day-w">Sunday &middot; 5:00 PM</div><div class="day-t">Posted in D2L</div><div class="day-d">Final deck and written responses go up. Firm deadline: the class studies from them before the session.</div></div>
 <div class="day day--go"><div class="day-w">Tuesday</div><div class="day-t">They present</div><div class="day-d">You open, they run it, you close with the review and the quiz.</div></div>
 </div>
@@ -1123,7 +1123,7 @@ function render(i){
   document.getElementById('fmFac').innerHTML=g.fac.replace(/ & /g,' &amp; ');
   document.getElementById('fmWhen').textContent='Tuesday, '+g.date+' \u00b7 '+g.time+' \u00b7 GB 1120';
   var lab=document.getElementById('fmLab');if(lab)lab.innerHTML='<b>'+g.members.length+' students</b> \u00b7 2025 roster shown';
-  var dts=document.getElementById('fmDates');if(dts)dts.innerHTML='<div class="fm-d"><span>Drafts reach you</span><b>'+g.send+'</b></div><div class="fm-d"><span>Posted in D2L, 5:00 PM</span><b>'+g.post+'</b></div><div class="fm-d fm-d--go"><span>Seminar day</span><b>Tue, '+g.date+' \u00b7 '+g.time+'</b></div>';
+  var dts=document.getElementById('fmDates');if(dts)dts.innerHTML='<div class="fm-d"><span>Final version to course director</span><b>'+g.send+'</b></div><div class="fm-d"><span>Posted in D2L, 5:00 PM</span><b>'+g.post+'</b></div><div class="fm-d fm-d--go"><span>Seminar day</span><b>Tue, '+g.date+' \u00b7 '+g.time+'</b></div>';
   var chips=document.getElementById('fmChips');
   chips.innerHTML=g.members.map(function(m,j){return '<div class="fm-chip" style="animation-delay:'+(j*55)+'ms">'+m+'</div>';}).join('');
   Array.prototype.forEach.call(list.querySelectorAll('.fm-btn'),function(b,j){b.classList.toggle('active',j===i);});
@@ -1137,27 +1137,30 @@ render(0);
 .tpd-top{display:flex;align-items:center;gap:14px;margin-bottom:10px}
 .tpd-slots{display:flex;gap:5px}
 .tpd-slot{width:22px;height:8px;border-radius:3px;background:var(--surface-card);border:1px solid var(--line);transition:background .3s,border-color .3s}
-.tpd-slot.filled{background:var(--au-green);border-color:var(--au-green)}
+.tpd-slot.filled{background:var(--au-navy);border-color:var(--au-navy)}
 .tpd-progress{font-family:"Montserrat",sans-serif;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
-.tpd-progress b{color:var(--au-green-deep)}
+.tpd-progress b{color:var(--au-navy)}
 .tpd-grid{display:grid;grid-template-columns:repeat(5,1fr);grid-auto-rows:1fr;gap:9px;flex:1;min-height:0;overflow:hidden}
 .tpd{display:block;padding:11px 14px 12px;min-height:0;overflow:hidden;background:var(--surface-card);border:1px solid var(--line);border-radius:10px;font-family:"Source Sans 3",sans-serif;font-size:clamp(11.5px,1.12vw,14px);font-weight:400;color:var(--ink-mid);line-height:1.4;cursor:pointer;transition:transform .18s,box-shadow .18s;text-align:left}
 .tpd:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,30,54,.08)}
 .tpd-n{display:block;font-family:"Montserrat",sans-serif;font-size:9.5px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:5px}
-.tpd.claimed{box-shadow:inset 3px 0 0 var(--au-green)}
-.tpd.claimed .tpd-n{color:var(--au-green-deep);font-weight:700}
-.tpd-tag{display:block;width:fit-content;margin-top:7px;font-family:"Montserrat",sans-serif;font-size:9.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--au-green-deep);background:var(--surface-muted);padding:3px 9px;border-radius:6px;animation:tpdPop .35s cubic-bezier(.2,.7,.3,1.3);white-space:nowrap}
-.tpd.claimed .tpd-txt{opacity:.55}
+.tpd.claimed{background:var(--surface-muted);border-color:var(--line);box-shadow:none;cursor:pointer}
+.tpd.claimed:hover{transform:none;box-shadow:none;border-color:var(--au-navy-mid)}
+.tpd.claimed .tpd-n{color:var(--ink-soft);opacity:.55}
+.tpd-tag{display:block;width:fit-content;margin-top:8px;font-family:"Montserrat",sans-serif;font-size:9.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:var(--au-navy);padding:4px 10px;border-radius:6px;animation:tpdPop .35s cubic-bezier(.2,.7,.3,1.3);white-space:nowrap}
+.tpd.claimed .tpd-txt{opacity:.4;text-decoration:line-through;text-decoration-color:rgba(0,30,54,.25);text-decoration-thickness:1px}
 @keyframes tpdPop{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:scale(1)}}
-.tpd--wild{border-style:dashed;color:var(--ink-soft)}
+.tpd--wild{border-style:dashed;border-color:var(--au-navy-mid);color:var(--ink-soft)}
 .tpd-overlay{position:absolute;inset:0;background:rgba(10,24,38,.55);backdrop-filter:blur(3px);display:none;align-items:center;justify-content:center;z-index:40}
 .tpd-overlay.open{display:flex}
 .tpd-modal{background:var(--surface-card);border:1px solid var(--line);border-radius:12px;padding:22px 26px;width:min(680px,86%);max-height:80%;overflow-y:auto;box-shadow:0 18px 60px rgba(0,0,0,.35)}
-.tpd-m-kick{font-family:"Montserrat",sans-serif;font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--au-green-deep);margin-bottom:4px}
+.tpd-m-kick{font-family:"Montserrat",sans-serif;font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--au-navy);margin-bottom:4px}
 .tpd-m-title{font-family:"Montserrat",sans-serif;font-size:clamp(15px,1.6vw,19px);font-weight:800;color:var(--ink);margin-bottom:14px;line-height:1.3}
 .tpd-m-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:7px}
 .tpd-fb{display:grid;grid-template-columns:36px 1fr auto;align-items:center;gap:10px;padding:9px 12px;background:var(--surface-card);border:1px solid var(--line);border-radius:10px;cursor:pointer;font-family:"Montserrat",sans-serif;text-align:left;transition:border-color .15s,transform .15s}
-.tpd-fb:hover:not(:disabled){border-color:var(--au-green);transform:translateX(2px)}
+.tpd-fb:hover:not(:disabled){border-color:var(--au-navy);background:var(--au-navy);transform:translateX(2px)}
+.tpd-fb:hover:not(:disabled) b,.tpd-fb:hover:not(:disabled) span{color:#fff}
+.tpd-fb:hover:not(:disabled) i{color:rgba(255,255,255,.6)}
 .tpd-fb:disabled{opacity:.32;cursor:not-allowed}
 .tpd-fb b{font-size:13px;font-weight:800;color:var(--au-navy)}
 .tpd-fb span{font-size:12px;font-weight:700;color:var(--ink)}
@@ -1166,13 +1169,17 @@ render(0);
 .tpd-cancel,.tpd-release{font-family:"Montserrat",sans-serif;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:none;border:1px solid var(--line);border-radius:6px;padding:7px 14px;color:var(--ink-mid);cursor:pointer}
 .tpd-release{border-color:#B3261E;color:#B3261E}
 .tpd-hint{font-size:11.5px;color:var(--ink-soft)}
-.tpd-lock{font-family:"Montserrat",sans-serif;font-size:10.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;background:var(--au-green-deep);color:#fff;border:none;border-radius:6px;padding:9px 16px;cursor:pointer;transition:transform .15s,box-shadow .15s}
-.tpd-lock:hover{transform:translateY(-1px);box-shadow:0 6px 14px rgba(27,122,51,.3)}
+.tpd-lock{font-family:"Montserrat",sans-serif;font-size:10.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;background:var(--au-navy);color:#fff;border:none;border-radius:6px;padding:9px 16px;cursor:pointer;transition:transform .15s,box-shadow .15s}
+.tpd-lock:hover{transform:translateY(-1px);box-shadow:0 6px 14px rgba(0,30,54,.25)}
 body.dark .tpd-lock{background:var(--au-green);color:#0a1826}
 body.dark .tpd,body.dark .tpd-slot,body.dark .tpd-fb{background:var(--surface-card);border-color:rgba(165,172,175,0.2)}
-body.dark .tpd-slot.filled{background:var(--au-green);border-color:var(--au-green)}
+body.dark .tpd-slot.filled{background:var(--au-navy);border-color:var(--au-navy)}
 body.dark .tpd-n,body.dark .tpd-fb b{color:var(--ink)}
-body.dark .tpd.claimed .tpd-n,body.dark .tpd-tag,body.dark .tpd-m-kick,body.dark .tpd-progress b{color:var(--au-green)}body.dark .tpd-tag{background:rgba(0,0,0,.35)}
+body.dark .tpd-m-kick,body.dark .tpd-progress b{color:var(--au-green)}
+body.dark .tpd.claimed{background:rgba(0,0,0,.22)}
+body.dark .tpd-tag{background:var(--au-green);color:#0a1826}
+body.dark .tpd-slot.filled{background:var(--au-green);border-color:var(--au-green)}
+body.dark .tpd-lock{background:var(--au-green);color:#0a1826}
 body.dark .tpd-modal{background:var(--surface-card);border-color:rgba(165,172,175,0.25)}
 @media (prefers-reduced-motion:reduce){.tpd:hover,.tpd-fb:hover{transform:none}.tpd-tag{animation:none}}
 </style>
